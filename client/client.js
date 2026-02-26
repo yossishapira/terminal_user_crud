@@ -25,7 +25,7 @@ export function AddUser() {
 export function UpdateUser() {
     const id = question("Press ID ")
     const is_id = isIdExists(id)
-    if (is_id === true) {
+    if (is_id) {
         const name = question("Enter new username ")
         if (name !== "") {
             UpdateUserByID(id, "username", name)
@@ -45,7 +45,7 @@ export function UpdateUser() {
 export function DeleteUser(){
     const id = question("Press ID ")
     const is_id = isIdExists(id)
-    if (is_id === true){
+    if (is_id){
         let Yes;
         while(Yes!=="n"){
         const delet = question("Confirm deletion (Y/N) ")
@@ -68,7 +68,6 @@ export function ReadUser() {
     const is_id = isIdExists(id)
     if (is_id === true) {
         ReadUserByID(id)
-        DB.lastUpdate = new Date()
     }
     else {
         console.log("The ID was not found ")
@@ -79,5 +78,4 @@ export function ReadUser() {
 export function SearchUsername(){
     const name = question("Press name ")
     SearchByUsername(name)
-    DB.lastUpdate = new Date()
 }
